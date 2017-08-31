@@ -5708,7 +5708,7 @@ Commands:
 
 (defun matlab-shell-topic-browser-create-contents (subtopic)
   "Fill in a topic browser with the output from SUBTOPIC."
-  (toggle-read-only -1)
+  (read-only-mode -1)
   (erase-buffer)
   (insert (matlab-shell-collect-command-output (concat "help " subtopic)))
   (goto-char (point-min))
@@ -5717,7 +5717,7 @@ Commands:
   (setq matlab-shell-topic-current-topic subtopic)
   (if (not (string-match "XEmacs" emacs-version))
       (matlab-shell-topic-mouse-highlight-subtopics))
-  (toggle-read-only 1)
+  (read-only-mode 1)
   )
 
 (defun matlab-shell-topic-click (e)
